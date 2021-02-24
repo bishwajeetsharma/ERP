@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Dashboard</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="assets/css/dashboard.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#" id="EmpName" style="color: #b6effb"></a>
+    <h2 class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" id="Eid" style="color: #b6effb">EmployeeId   </h2>
+    <h2 class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" id="Email" style="color: #b6effb">Email    </h2>
+    <a class="navbar" href="index.html" style="color: #b6effb" onclick="sessionStorage.clear()">Log out</a>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="sidebar-sticky pt-3">
+                <img src="images/photo.png"  class="rounded float-start" alt="User_Photo" width="300px" id="user_img">
+                <!--<label for="formFile" class="form-label">Change Image</label> -->
+                <form class="needs-validation" id="user_profile_image">
+                    <input class="form-control" type="file" name="file" size="50" accept="image/jpeg" id="formFile" required>
+                    <div class="invalid-feedback">
+                        Provide Valid Photograph
+                    </div>
+                    <button type="submit" id="upload" class="w-100 btn btn-primary btn-lg" >Upload</button>
+                    <button class="btn btn-lg btn-primary btn-block" disabled id="spinner-button-upload" style="display: none;" type="submit">
+                        <span aria-hidden="true" class="spinner-border spinner-border-sm" role="status"></span>
+                        Uploading ...
+                    </button>
+                </form>
+            </div>
+        </nav>
+        <main role="main" class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Dashboard</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                        <form id="date_search">
+                            <label for="day1">Upto</label>
+                            <input type="date" id="day1" name="salday">
+                            <input type="submit" value="Search">
+                        </form>
+                        <form id="download">
+                            <button type="submit" onclick="generate()" style="color: #0b5ed7">Download PDF</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+<!--            <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
+            <h2>Salary Table</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm" id="EmpSalary">
+                </table>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/dashboard.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+</body>
+</html>
